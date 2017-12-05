@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poker T-Shirt 小舖</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>    
+    <script src="https://use.fontawesome.com/e925265f68.js"></script>
+    <style>
+        body {
+          max-width: 1200px;
+          margin: auto;
+          font-family:"微軟正黑體", "Space Mono", sans-serif;
+          font-size: 18px;
+          line-height: 1.4em;
+          box-sizing: border-box;
+        }
+
+        .web_head {   
+          background-color: #FFF; 
+          background-image: linear-gradient(150deg,#FF8500 20%, transparent, #FFCC00 ); 
+          color: #600;       
+          padding: 8px 8px 15px 30px;         
+          position: fixed;
+          top: 0;         
+          left: 0;
+          width: 100%;
+          z-index: 999;       
+          margin: auto;
+          opacity: 0.9;
+          filter: alpha(opacity=90); /* For IE8 and earlier */
+        }
+
+        .web_head h2 {
+          font-size: 32px;
+          margin-left: auto;
+        }
+
+        .web_head p {
+          font-size: 20px;
+          margin-left: 10px;
+        }
+
+        .bar {          /* 按鈕選單 */
+          position: fixed;
+          left: 10px;
+          top: 140px;    
+          width: 100%;  
+          z-index: 1000;
+          text-align: left;
+        }
+        
+        .btn { 
+          text-align: left; 
+        }
+
+        #cart {
+          text-align: center;
+          border: 0px solid orange;
+          color: red;
+          padding: 0px;
+        }
+          #cart:hover {
+            background-color: #FFF;
+            position: relative;
+            color: #F60;
+            top: 2px;
+            left: 1px;
+          }
+          #cart:active {
+            background-color: #FFF;
+            color: #F60;
+            position: relative;
+            top: 2px;
+            left: 1px;
+          }
+
+        .btn li {
+          display: inline-block;
+          background-color: #FFF;
+          border: 1px solid #600;
+          padding: 10px 25px;
+          margin: 5px;
+          border-radius: 4px;
+          color: #600;
+          font-size: 20px;
+        }
+        
+        .btn li:hover {
+          background-color: #F90;
+          color: #FFF;
+          border: 1px solid #F90;
+        }
+
+        .btn li:active {
+          position: relative;
+          top: 2px;
+          left: 1px;
+        }
+
+        .product {
+            margin: 240px auto;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;                 
+        }
+
+        p {            
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .promo .price {
+            color: red;
+            font-weight: 600;
+        }
+
+        .img_box { 
+            border:1px solid #CCC; 
+            padding-top: 10px; 
+            width: 265px; 
+            /*display: inline-block; */
+            text-align: center;  
+            font-size: 20px;
+            margin: 10px;
+            box-shadow: 5px 5px 3px #CCC;
+            overflow: hidden; /* new */
+        }
+
+        img {
+            width: 70%;
+        }
+
+        .buy {
+            width: 65%;
+            height: 55%;
+            background-color: white;
+            border: 5px dashed orange;
+            border-radius: 100%;
+            margin: 30px auto;            
+        }
+
+        .order {
+            margin: 20px auto;
+            width: 80%;            
+        }
+
+          .order input {
+              text-align: center;
+              font-size: 14pt;
+              margin: 5px;
+          }
+
+          .order button {
+              text-align: center;
+              font-size: 12pt;
+              margin: 5px;
+              background-color: orange;
+              border-radius: 5px;
+              border: 0px solid orange;
+              box-shadow: 2px 2px 2px #e6e6e6;
+              padding: 5px;
+          }
+
+        .view {
+           /*width: 285px;
+           height: 300px;
+           margin: 10px;*/
+           float: left;
+           /*border: 10px solid #fff;*/
+           overflow: hidden;
+           position: relative;
+           text-align: center;
+           /*-webkit-box-shadow: 1px 1px 2px #e6e6e6;
+           -moz-box-shadow: 1px 1px 2px #e6e6e6;
+           box-shadow: 1px 1px 2px #e6e6e6;*/
+           cursor: default;
+           padding: 0 auto;
+           
+        }
+
+        .view .mask {
+           width: 266px;
+           height: 285px;
+           position: absolute;
+           overflow: hidden;
+           z-index: 50;
+           top: 0;
+           left: 0;
+           padding: 20px auto;          
+        }
+
+        .view img {
+           /*display: block;*/
+           position: relative;
+        }
+
+        .view-fifth .mask {
+           background-color: rgba(255,153,51,0.5);
+           -webkit-transform: translate(-300px, 10px);
+           -moz-transform: translate(-300px, 10px);
+           -o-transform: translate(-300px, 10px);
+           -ms-transform: translate(-300px, 10px);
+           transform: translate(-300px, 10px);
+
+           -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+           filter: alpha(opacity=100);
+           opacity: 1;
+           -webkit-transition: all 0.3s ease-in-out;
+           -moz-transition: all 0.3s ease-in-out;
+           -o-transition: all 0.3s ease-in-out;
+           -ms-transition: all 0.3s ease-in-out;
+           transition: all 0.3s ease-in-out;
+        }
+
+        /*.view-fifth h2 {
+           background: rgba(255, 255, 255, 0.5);
+           color: #000;
+           -webkit-box-shadow: 0px 1px 3px rgba(159, 141, 140, 0.5);
+           -moz-box-shadow: 0px 1px 3px rgba(159, 141, 140, 0.5);
+           box-shadow: 0px 1px 3px rgba(159, 141, 140, 0.5);
+        }*/
+        /*.view-fifth p {
+           -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+           filter: alpha(opacity=0);
+           opacity: 0;
+           color: #333;
+           -webkit-transition: all 0.2s linear;
+           -moz-transition: all 0.2s linear;
+           -o-transition: all 0.2s linear;
+           -ms-transition: all 0.2s linear;
+           transition: all 0.2s linear;
+        }*/
+        .view-fifth:hover .mask {
+           -webkit-transform: translate(10px, 10px);
+           -moz-transform: translate(10px, 10px);
+           -o-transform: translate(10px, 10px);
+           -ms-transform: translate(10px, 10px);
+           transform: translate(10px, 10px);
+        }
+        
+        /*.view-fifth:hover p {
+           -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+           filter: alpha(opacity=100);
+           opacity: 1;
+        }*/
+
+        @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
+          .img_box {
+            width: 90%;
+          } 
+          img {
+            width: 60%;
+          }         
+          .view .mask {
+            width: 90%;
+            height: 475px;
+          }
+          .view-fifth .mask {           
+           -webkit-transform: translate(-800px, 10px);
+           -moz-transform: translate(-800px, 10px);
+           -o-transform: translate(-800px, 10px);
+           -ms-transform: translate(-800px, 10px);
+           transform: translate(-800px, 10px);
+           -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+           filter: alpha(opacity=100);
+           opacity: 1;
+           -webkit-transition: all 0.3s ease-in-out;
+           -moz-transition: all 0.3s ease-in-out;
+           -o-transition: all 0.3s ease-in-out;
+           -ms-transition: all 0.3s ease-in-out;
+           transition: all 0.3s ease-in-out;
+          }
+
+          .view-fifth:active .mask {
+           -webkit-transform: translate(12px, 10px);
+           -moz-transform: translate(12px, 10px);
+           -o-transform: translate(12px, 10px);
+           -ms-transform: translate(12px, 10px);
+           transform: translate(12px, 10px);
+          }
+
+          .buy {
+            width: 55%;
+            height: 60%;
+            background-color: white;
+            border: 5px dashed orange;
+            border-radius: 100%;
+            margin: 30px auto;            
+          }
+
+          .order {
+            margin: 80px auto;
+            width: 80%;            
+          }
+
+            .order input {                
+                font-size: 18pt;
+                margin: 10px;
+            }
+
+            .order button {
+                text-align: center;
+                font-size: 12pt;
+                margin: 5px; 
+                padding: 5px;
+            }
+        }
+        
+      
+    </style>
+    <script>
+    $(document).ready(function(){
+        $(".btn_all").click(function(){
+           $(".img_box").show();           
+        });
+        $(".btn_black").click(function(){
+            $(".img_box").hide();
+            $(".black").show(); 
+        });
+        $(".btn_gray").click(function(){
+            $(".img_box").hide();
+            $(".gray").show();         
+        });
+        $(".btn_white").click(function(){
+            $(".img_box").hide();
+            $(".white").show();         
+        });
+        $(".btn_promo").click(function(){
+            $(".img_box").hide();
+            $(".promo").show();         
+        });
+
+    });
+    </script>
+    <noscript>Your browser does not support JavaScript!</noscript>
+
+</head>
+<body>
+
+    <div class="web_head">
+        <h2>撲克T恤小舖</h2>
+        <p>歡迎參觀選購。</p>
+    </div>
+    <div class="bar">
+        <ul class="btn">
+            <li class ="btn_all">全部</li>
+            <li class ="btn_black">黑色</li>
+            <li class ="btn_gray">灰色</li>
+            <li class ="btn_white">白色</li>
+            <li class ="btn_promo">特價</li>
+            <li id ="cart"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>購物車</li>
+        </ul>
+    </div>   
+
+    <div class="content">
+      <div class="product">
+        <div class="view-fifth view">
+          <div class="img_box black promo">
+              <img src="images/filter/c-b-p.jpg">
+              <div class="p_name">梅花T恤-黑色</div>
+              <div class="price">250元</div>              
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box gray">
+              <img src="images/filter/c-g.jpg">
+              <div class="p_name">梅花T恤-灰色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box white">
+              <img src="images/filter/c-w.jpg">
+              <div class="p_name">梅花T恤-白色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box black">
+              <img src="images/filter/d-b.jpg">
+              <div class="p_name">方塊T恤-黑色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box gray promo">
+              <img src="images/filter/d-g-p.jpg">
+              <div class="p_name">方塊T恤-灰色</div>
+              <div class="price">250元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box white">
+              <img src="images/filter/d-w.jpg">
+              <div class="p_name">方塊T恤-白色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box black">
+              <img src="images/filter/h-b.jpg">
+              <div class="p_name">紅心T恤-黑色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box gray promo">
+              <img src="images/filter/h-g-p.jpg">
+              <div class="p_name">紅心T恤-灰色</div>
+              <div class="price">250元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box white">
+              <img src="images/filter/h-w.jpg">
+              <div class="p_name">紅心T恤-白色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box black">
+              <img src="images/filter/s-b.jpg">
+              <div class="p_name">黑桃T恤-黑色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box gray promo">
+              <img src="images/filter/s-g-p.jpg">
+              <div class="p_name">黑桃T恤-灰色</div>
+              <div class="price">250元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>
+        <div class="view-fifth view">
+          <div class="img_box white">
+              <img src="images/filter/s-w.jpg">
+              <div class="p_name">黑桃T恤-白色</div>
+              <div class="price">300元</div>
+          </div>
+          <div class="mask">
+              <div class="buy">
+                <div class="order">訂購數量<br />
+                  <input type="text" name="order" size="5" placeholder="1"><br />
+                  <button value="submit">加入購物車</button>
+                </div>
+              </div>          
+          </div>
+        </div>   
+      </div>
+    </div>
+
+</body>
+</html>

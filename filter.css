@@ -1,5 +1,5 @@
 
-        body {
+body {
           max-width: 1200px;
           margin: auto;
           font-family:"微軟正黑體", "Space Mono", sans-serif;
@@ -116,7 +116,7 @@
             font-size: 20px;
             margin: 10px;
             box-shadow: 5px 5px 3px #CCC;
-            overflow: hidden;
+            overflow: hidden; 
         }
 
         img {
@@ -141,6 +141,7 @@
               text-align: center;
               font-size: 14pt;
               margin: 5px;
+              width: 40%;
           }
 
           .order button {
@@ -153,12 +154,17 @@
               box-shadow: 2px 2px 2px #e6e6e6;
               padding: 5px;
           }
-
-        .view {           
-           float: left;           
+              .order button:hover {
+                  box-shadow: 2px 2px 3px 1px #AAA;
+              }
+              .order button:active {
+                  box-shadow: 2px 2px 3px 1px #C60 inset;
+              }
+        .view {          
+           float: left;          
            overflow: hidden;
            position: relative;
-           text-align: center;           
+           text-align: center;          
            cursor: default;
            padding: 0 auto;
            
@@ -175,7 +181,7 @@
            padding: 20px auto;          
         }
 
-        .view img {           
+        .view img {          
            position: relative;
         }
 
@@ -195,17 +201,14 @@
            -o-transition: all 0.3s ease-in-out;
            -ms-transition: all 0.3s ease-in-out;
            transition: all 0.3s ease-in-out;
-        }
-        
+        }       
         .view-fifth:hover .mask {
            -webkit-transform: translate(10px, 10px);
            -moz-transform: translate(10px, 10px);
            -o-transform: translate(10px, 10px);
            -ms-transform: translate(10px, 10px);
            transform: translate(10px, 10px);
-        }
-        
-        
+        }        
 
         @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
           .img_box {
@@ -265,7 +268,7 @@
                 text-align: center;
                 font-size: 12pt;
                 margin: 5px; 
-                padding: 5px;
+                padding: 5px;                
             }
-        }
             
+        }

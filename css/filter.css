@@ -150,7 +150,7 @@ body {
             background: #F03;
             padding: 18px 15px;
             color: #FF0;
-            z-index: 999;
+            z-index: 20;
         }
         .img_box { 
             border:1px solid #CCC; 

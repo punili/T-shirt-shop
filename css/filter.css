@@ -4,7 +4,7 @@ body {
           font-family:"微軟正黑體", "Space Mono", sans-serif;
           font-size: 18px;
           line-height: 1.4em;
-          box-sizing: border-box;
+          box-sizing: border-box;                  
         }
 
         /*.header {   
@@ -62,10 +62,8 @@ body {
           text-align: center;
           border: 0px solid orange;
           color: #600;
-          padding: 0px;
-          margin-top: 60px;
-          margin-right: 30px;
-          float: right;
+          padding: 0px;          
+          margin-left: 10px; 
         }
           #cart:hover {
             background-color: rgba(255,255,255,0);
@@ -100,33 +98,68 @@ body {
         .btn li:active {          
           color: #555;
           cursor: pointer;
-        }
-        .phoneMenu li {
-          cursor: pointer;
-        }
-        .phoneMenu li:hover {          
-          color: #F60;                   
-        }
+        }        
 
         .topic {          
           margin: 15px auto;          
+        }        
+        .swiper-container {
+          width: 90%;
+          height: 200px;
         }
-        .theme-default #slider {
-            margin:0 auto;
-            width:95%; /* Make sure your images are the same size */
-            
+        .swiper-wrapper {
+          width: 100%;
         }
-        .nivoSlider img {            
-            width:100%;
-            height:300px;
-            margin: 0 auto;
+        .swiper-wrapper img {
+          width: 100%;
+          height: 200px;
         }
+        .swiper-slide {
+          text-align: center;
+          font-size: 18px;
+          background: #fff;
+          width: 80%;
+          /* Center slide text vertically */
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center;
+        }
+        .swiper-button-prev {          
+          font-size: 20px;
+          /*border-radius: 50%;*/          
+          padding: 10px;
+          background-color: rgba(200,200,200,0.5); 
+        }
+
+        .swiper-button-next {          
+          font-size: 20px;
+         /* border-radius: 50%;*/                   
+          padding: 10px; 
+          background-color: rgba(200,200,200,0.5);         
+        }
+        
+
+        .swiper-pagination-bullet-active {          
+          background: #FFF;
+          border: 3px solid #AAA;
+          margin-bottom: 0;          
+        }
+        
         .phoneBar {
           display: none;
         }
         .phoneMenu {
           display: none;
-        }
+        }            
         .product {
             margin: 20px auto;
             width: 95%;
@@ -213,8 +246,7 @@ body {
            position: relative;
            text-align: center;          
            cursor: default;
-           padding: 0 auto;
-           
+           padding: 0 auto;           
         }
 
         .view .mask {
@@ -255,8 +287,36 @@ body {
            -o-transform: translate(10px, 10px);
            -ms-transform: translate(10px, 10px);
            transform: translate(10px, 10px);
-        }        
-         @media only screen and  (max-width: 1000px) {
+        }
+        footer {
+          border-top: 1px solid #AAA;
+          width: 80%;
+          margin: 0 auto;
+          padding: 50px auto;
+          height: 100px;
+        }
+            footer ul {
+                margin: 0;
+                list-style: none;
+            }
+            .footerLeft {
+                float: left;
+            } 
+            .footerLeft li,.footerRight li {
+                font-size: 12px;
+                color: #666;
+                display: inline;
+                margin: 5px;
+            }
+                .footerLeft li:hover,.footerRight li:hover {
+                    cursor: pointer;
+                    color: #333;
+                    font-weight: 600;
+                }
+            .footerRight {
+                float: right;
+            }        
+         @media only screen and  (max-width: 1100px) {
           .btn {
             display: none;
           }
@@ -297,18 +357,33 @@ body {
               .phoneMenu > ul > li{     
                 margin: 5px auto;
                 color: #805300;
-              }
+                cursor: pointer;
+              }              
+                  .phoneMenu li:hover {          
+                    color: #F60;                   
+                  }
         }      
         @media only screen and (min-width: 320px) and (max-width: 480px), (orientation: portrait) {
+          .swiper-container {
+            width: 100%;
+            height: 180px;            
+          }
+          .view {
+            width: 95%;            
+          }
           .img_box {
-            width: 90%;
+            width: 95%;            
           } 
           img {
-            width: 60%;
+            width: 90%;
+          }
+          .special {
+            padding: 48px 32px;
+            font-size: 24px;
           }         
           .view .mask {
-            width: 90%;
-            height: 475px;
+            width: 95%;
+            height: 98%;
           }
           .view-fifth .mask {           
            -webkit-transform: translate(-800px, 10px);
@@ -327,20 +402,20 @@ body {
           }
 
           .view-fifth:active .mask {
-           -webkit-transform: translate(12px, 10px);
-           -moz-transform: translate(12px, 10px);
-           -o-transform: translate(12px, 10px);
-           -ms-transform: translate(12px, 10px);
-           transform: translate(12px, 10px);
+           -webkit-transform: translate(-10px, 10px);
+           -moz-transform: translate(-10px, 10px);
+           -o-transform: translate(-10px, 10px);
+           -ms-transform: translate(-10px, 10px);
+           transform: translate(-10px, 10px);
           }
 
           .buy {
             width: 55%;
-            height: 60%;
+            height: 45%;
             background-color: white;
             border: 5px dashed orange;
             border-radius: 100%;
-            margin: 30px auto;            
+            margin: 80px auto;            
           }
 
           .order {

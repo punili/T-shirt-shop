@@ -63,6 +63,9 @@ body {
           border: 0px solid orange;
           color: #600;
           padding: 0px;
+          margin-top: 60px;
+          margin-right: 30px;
+          float: right;
         }
           #cart:hover {
             background-color: rgba(255,255,255,0);

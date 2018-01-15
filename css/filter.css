@@ -141,7 +141,17 @@ body {
             color: red;
             font-weight: 600;
         }
-
+        .special {
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            font-size: 14px;
+            border-radius: 99px;
+            background: #F03;
+            padding: 18px 15px;
+            color: #FF0;
+            z-index: 999;
+        }
         .img_box { 
             border:1px solid #CCC; 
             padding-top: 10px; 
